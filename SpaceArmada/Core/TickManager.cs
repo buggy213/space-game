@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceArmada
+namespace SpaceArmada.Core
 {
-    class Program
+    public class TickManager
     {
-        static void Main(string[] args)
-        {
-        }
+        public static List<ITick> Tickables = new List<ITick>();
     }
 }
