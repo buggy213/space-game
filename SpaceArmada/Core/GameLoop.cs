@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SFML.System;
+using SpaceArmada.Gameplay;
+using SFML.Graphics;
+using SFML.Window;
 
 namespace SpaceArmada.Core
 {
     // Dewitters game loop implementation
     class GameLoop
     {
+
+        static RenderTexture renderTexture;
+
         const int TICKS_PER_SECOND = 60;
         const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
         const int MAX_FRAMESKIP = 5;
@@ -19,7 +25,7 @@ namespace SpaceArmada.Core
 
         static int previous;
 
-        static Clock tickClock;
+        static Clock tickClock = new Clock();
         static long loops;
 
         static bool gameIsRunning;
@@ -27,13 +33,19 @@ namespace SpaceArmada.Core
         public static void Init()
         {
             // Do initialization here
-
+            WindowManager.Start();
             Start();
         }
         
         public static void Start()
         {
+            VideoMode vm = WindowManager.currentVideoMode;
+            renderTexture = new RenderTexture(vm.Width, vm.Height);
+
             gameIsRunning = true;
+            MenuScreen screen = new MenuScreen();
+            screen.Start();
+            StateManager.Push(screen);
             Loop();
         }
 
@@ -71,7 +83,14 @@ namespace SpaceArmada.Core
 
         static void Draw()
         {
-            
+            renderTexture.Clear();
+            StateManager.Draw(renderTexture);
+            renderTexture.Display();
+
+            Sprite drawn = new Sprite(renderTexture.Texture);
+            WindowManager.mainWindow.Clear();
+            WindowManager.mainWindow.Draw(drawn);
+            WindowManager.mainWindow.Display();
         }
     }
 }

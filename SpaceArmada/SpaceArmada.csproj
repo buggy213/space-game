@@ -37,16 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="sfmlnet-audio-2">
-      <HintPath>..\..\..\..\UnityProject\sfmlnet-audio-2.dll</HintPath>
+      <HintPath>..\..\..\..\SFML.Net-2.2\lib\sfmlnet-audio-2.dll</HintPath>
     </Reference>
     <Reference Include="sfmlnet-graphics-2">
-      <HintPath>..\..\..\..\UnityProject\sfmlnet-graphics-2.dll</HintPath>
+      <HintPath>..\..\..\..\SFML.Net-2.2\lib\sfmlnet-graphics-2.dll</HintPath>
     </Reference>
     <Reference Include="sfmlnet-system-2">
-      <HintPath>..\..\..\..\UnityProject\sfmlnet-system-2.dll</HintPath>
+      <HintPath>..\..\..\..\SFML.Net-2.2\lib\sfmlnet-system-2.dll</HintPath>
     </Reference>
     <Reference Include="sfmlnet-window-2">
-      <HintPath>..\..\..\..\UnityProject\sfmlnet-window-2.dll</HintPath>
+      <HintPath>..\..\..\..\SFML.Net-2.2\lib\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,46 +58,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DrawableEntity.cs" />
+    <Compile Include="Core\Entity.cs" />
     <Compile Include="Core\EntryPoint.cs" />
     <Compile Include="Core\GameLoop.cs" />
+    <Compile Include="Core\IDraw.cs" />
     <Compile Include="Core\ITick.cs" />
     <Compile Include="Core\Screen.cs" />
     <Compile Include="Core\StateManager.cs" />
     <Compile Include="Core\TickManager.cs" />
+    <Compile Include="Core\WindowManager.cs" />
+    <Compile Include="Gameplay\MenuScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="csfml-audio-2.dll">
+    <Content Include="Assets\SplashScreen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="csfml-graphics-2.dll">
+    <Content Include="lib\csfml-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="csfml-network-2.dll">
+    <Content Include="lib\csfml-graphics-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="csfml-system-2.dll">
+    <Content Include="lib\csfml-network-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="csfml-window-2.dll">
+    <Content Include="lib\csfml-system-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="libsndfile-1.dll">
+    <Content Include="lib\csfml-window-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="openal32.dll">
+    <Content Include="lib\libsndfile-1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="OpenTK.Compatibility.dll">
+    <Content Include="lib\openal32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="OpenTK.dll">
+    <Content Include="lib\OpenTK.Compatibility.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\OpenTK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

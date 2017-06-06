@@ -12,6 +12,8 @@ namespace SpaceArmada.Core
         {
             // Initialize the main game loop
             GameLoop.Init();
+
+
         }
     }
 }
